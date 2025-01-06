@@ -1,0 +1,401 @@
+/* GENERAL STYLING */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body.scroll-enabled {
+    overflow: auto;
+}
+
+/* INTRO SECTION */
+#intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ANIMATED TEXT */
+#animated-text {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: white;
+    font-family: 'Geist Mono', monospace;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: auto;
+    transform: translateY(700%);
+    display: none;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(255, 255, 255, 0.4),
+                 0 0 40px rgba(255, 255, 255, 0.2);
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+.word {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* RESPONSIVE IMAGE */
+img {
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    max-height: 70vh;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* MAIN CONTENT */
+#main-content {
+    display: flex;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #521739, #111234, #00425d, #003b6e, #8e44ad);
+    background-size: 400% 400%;
+    animation: gradientBackground 10s ease infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* PROJECTS CONTENT */
+#projects-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    height: fit-content;
+    width: fit-content;
+    padding: 20px;
+    margin-top: 23%; 
+    box-sizing: border-box;
+}
+
+
+.card {
+    height: 250px;
+    width: 200px;
+    background: black;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    box-shadow: 0 70px 63px -60px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.border {
+    height: 240px;
+    width: 190px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border 1s;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover .border {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.card h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: black;
+    margin: 0;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 1s;
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card:hover h2 {
+    opacity: 1;
+}
+
+/* CARD BACKGROUND STYLES */
+.card0 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-4.png') center center no-repeat;
+    background-size: 200px;
+}
+.card0:hover {
+    background-size: 800px;
+    background-position: left;
+}
+
+.card1 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-3.png') center center no-repeat;
+    background-size: 200px;
+}
+.card1:hover {
+    background-size: 800px;
+    background-position: left;
+}
+
+.card2 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-7.png') center center no-repeat;
+    background-size: 200px;
+}
+.card2:hover {
+    background-size: 650px;
+    background-position: left center;
+}
+
+.card3 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-6.png') center center no-repeat;
+    background-size: 200px;
+}
+.card3:hover {
+    background-size: 700px;
+    background-position: left center;
+}
+
+.card4 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-8.png') center center no-repeat;
+    background-size: 200px;
+}
+.card4:hover {
+    background-size: 700px;
+    background-position: left center;
+}
+
+.card5 {
+    background: url('https://raw.githubusercontent.com/golovchits/golovchits.github.io/refs/heads/main/Untitled%20design-9.png') center center no-repeat;
+    background-size: 200px;
+}
+.card5:hover {
+    background-size: 700px;
+    background-position: left center;
+}
+
+
+.no-hover .card:hover {
+    background-size: 200px; 
+}
+
+
+/* HEADER & LOGO */
+#page-header {
+    position: absolute;
+    top: 25%; 
+    width: 93%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 40px;
+    box-sizing: border-box;
+    transform: translateY(-50%); 
+    transition: opacity 1s ease-in-out;
+}
+
+#logo {
+    text-align: center;
+    width: var(--uniform-width);
+    display: flex;
+    align-items: center;
+}
+
+#logo-link {
+    text-decoration: none;
+    color: white;
+    font-family: 'Geist Mono', monospace;
+    font-weight: bold;
+    font-size: var(--uniform-font-size);
+}
+
+/* BUTTON CONTAINER (MENU) */
+#button-container {
+    display: flex; 
+    flex-direction: row;
+    gap: 10px; 
+    margin: 0;
+    align-items: center;
+}
+
+  /* MENU BUTTONS */
+  .main-button {
+    color: #e1e1e1;
+    font-family: 'Geist Mono', monospace;
+    font-size: var(--uniform-font-size);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition: color 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-block;
+    position: relative;
+  }
+  
+  .main-button:hover {
+    color: #fff;
+  }
+  
+  .main-button:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: width 400ms, left 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .main-button:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Active menu button */
+.main-button.active {
+    color: #fff;
+}
+
+.main-button.active:after {
+    width: 100%; 
+    left: 0; 
+}
+
+/* Inactive Button */
+.main-button.inactive {
+    color: #666; 
+    cursor: not-allowed; 
+    pointer-events: none; 
+    opacity: 0.5; 
+}
+
+.main-button.inactive:hover {
+    color: #666; 
+}
+
+
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1200px) {
+    #projects-content {
+        right: 20px;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        width: 300px;
+        margin-top: 24%;
+    }
+
+    #animated-text {
+        transform: translateY(250px);
+    }
+
+    #projects-content {
+        position: relative;
+        right: auto;
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        transform: none;
+        top: 35%;
+        padding: 40px 20px;
+        justify-content: center;
+    }
+
+    .card {
+        height: 200px;
+        width: 160px;
+        background-size: 580px;
+        background-position: left;
+    }
+
+    .border {
+        height: 190px;
+        width: 150px;
+        border: 2px solid black;
+    }
+
+    .card h2 {
+        opacity: 1; 
+        font-size: 0.9rem;
+    }
+
+    #page-header {
+        flex-direction: column-reverse; 
+        align-items: center; 
+        padding: 0px;
+        top: 20%;
+        width: 100%;
+    }
+
+    #logo {
+        order: 0; 
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+    }
+
+    #main-content {
+        height: 160vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    img {
+        width: 250px;
+    }
+
+    #button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #animated-text {
+        transform: translateY(200px);
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+}

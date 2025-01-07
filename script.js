@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener('click', (e) => {
         const buttonId = button.id;
         let targetPage;
+        let openInNewTab = false;
         switch(buttonId) {
           case 'timeline-btn':
             targetPage = 'timeline.html';
@@ -22,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             targetPage = 'projects.html';
             break;
           case 'jobs-btn':
-            targetPage = 'jobs.html';
+            targetPage = 'https://golovchits.github.io/VIRA/';
+            openInNewTab = true;
             break;
           case 'about-btn':
             targetPage = 'about.html';
@@ -30,9 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
           default:
             targetPage = 'index.html';
         }
-        fadeOut(document.body, 600, () => {
-          window.location.href = targetPage;
-        });
+        if (buttonId === 'jobs-btn') {
+          // Open jobs button link immediately without fade-out
+          window.open(targetPage, '_blank'); // Opens in a new tab
+        } else {
+          // Apply fade-out for other buttons
+          fadeOut(document.body, 600, () => {
+            window.location.href = targetPage;
+          });
+        }
       });
     });
 

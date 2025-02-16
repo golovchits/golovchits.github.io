@@ -35,7 +35,7 @@ body.scroll-enabled {
     font-weight: normal;
     text-align: center;
     margin-bottom: auto;
-    transform: translateY(700%);
+    transform: translateY(20vh);
     display: none;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
                  0 0 20px rgba(255, 255, 255, 0.6),

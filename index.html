@@ -3,33 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DG | Portfolio</title>
+    <meta name="theme-color" content="#0b0b2b">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div id="index-page">
-        <div id="intro">
-            <div id="animated-text"></div>
-            <iframe
-                src="https://giphy.com/embed/8pcUZOnLQ0ldECpVqe"
-                frameBorder="0"
-                allowFullScreen>
-            </iframe>
-        </div>
-        <div id="main-content">
-            <div id="logo">
-                <a href="index.html" id="logo-link">GOLOVCHITS.GITHUB.IO</a>
-            </div>
-            <div id="button-container">
-                <button class="main-button inactive" id="timeline-btn">Timeline</button>
-                <button class="main-button" id="projects-btn">Projects</button>
-                <button class="main-button" id="jobs-btn">Jobs</button>
-                <button class="main-button inactive" id="about-btn">About Me</button>
-            </div>
-        </div>
+    <!-- Intro Animation -->
+    <div id="intro">
+        <div id="animated-text"></div>
+        <iframe
+            src="https://giphy.com/embed/8pcUZOnLQ0ldECpVqe"
+            frameBorder="0"
+            allowFullScreen>
+        </iframe>
     </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Starry Background -->
+        <div class="stars"></div>
+
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar">
+            <div class="nav-header">
+                <h1>DMITRY GOLOVCHITS</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#research" class="nav-link active" data-section="research">
+                    <span class="nav-number">01</span>
+                    <span class="nav-text">Research</span>
+                </a>
+                <a href="#experience" class="nav-link" data-section="experience">
+                    <span class="nav-number">02</span>
+                    <span class="nav-text">Experience</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-number">03</span>
+                    <span class="nav-text">About Me</span>
+                </a>
+            </div>
+            <div class="nav-footer">
+                <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+                    <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
+                </a>
+                <div class="replay-text" id="replay-animation">
+                    Like the animation? Me too :) Replay it.
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Footer -->
+        <div id="mobile-nav-footer">
+            <div class="mobile-footer-content">
+                <span class="mobile-name">DMITRY GOLOVCHITS</span>
+                <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <a href="#research" class="mobile-nav-link" data-section="research">
+                    <span class="mobile-nav-number">01</span>
+                    <span class="mobile-nav-text">Research</span>
+                </a>
+                <a href="#experience" class="mobile-nav-link" data-section="experience">
+                    <span class="mobile-nav-number">02</span>
+                    <span class="mobile-nav-text">Experience</span>
+                </a>
+                <a href="#about" class="mobile-nav-link" data-section="about">
+                    <span class="mobile-nav-number">03</span>
+                    <span class="mobile-nav-text">About Me</span>
+                </a>
+                <div class="mobile-menu-footer">
+                    <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="mobile-linkedin-link">
+                        <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                    <div class="mobile-replay-text" id="mobile-replay-animation">
+                        Like the animation? Me too :) Replay it.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <main id="content-area">
+            <section id="research" class="content-section active">
+                <h2 class="section-title">Research</h2>
+                <div class="section-content">
+                    <div class="favorite-key">★ Favorite</div>
+
+                    <!-- Skill Filters -->
+                    <div class="skill-filters">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="ai">AI & Machine Learning</button>
+                        <button class="filter-btn" data-filter="web">Web Development</button>
+                        <button class="filter-btn" data-filter="data">Data Analysis</button>
+                        <button class="filter-btn" data-filter="qualitative">Qualitative Research</button>
+                        <button class="filter-btn" data-filter="quantitative">Quantitative Research</button>
+                        <button class="filter-btn" data-filter="ux">HCI & UX</button>
+                        <button class="filter-btn" data-filter="upcoming">Upcoming Projects</button>
+                    </div>
+
+                    <div class="research-list">
+
+                        <!-- Project 1: AquaLens -->
+                        <div class="project-item" data-skills="ai web data qualitative quantitative ux">
+                            <div class="project-main" data-project="1">
+                                <span class="project-num">BSc CSSci 2025</span>
+                                <div class="project-title-section">
+                                    <h3>AquaLens: Digital Platform for Urban Water Quality Awareness <span class="favorite-star" title="Favorite Project">★</span></h3>
+                                    <div class="project-skills">AI · Web Development · HCI & UX · Database Management · Qualitative Research · Quantitative Research · Data Analysis · Data Visualizations · Project Management · Stakeholder Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-1">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>In partnership with the Municipality of Amsterdam, the AquaLens project developed an interactive digital platform to promote awareness, understanding, and collaboration around urban aquatic ecosystems. The platform was designed to bridge scientific knowledge, policy implementation, and public awareness for both field experts and the general public. Using User-Centred Design, the Fogg Behaviour Model, and the Technology Acceptance Model, the team created a website featuring scrollytelling, data visualizations, an AI chatbot (Froggy), and a global project database. My primary contribution was developing the AI agent using a RAG-like system that integrates with the Sanity database, processes queries through Meta's Llama-3.3-70B model via TogetherAI API, and deploys through Hugging Face to serve diverse user audiences effectively.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>Research revealed that the general public has moderate to low awareness of urban water quality issues, highlighting the need for accessible educational interventions. The platform's narrative design, led by the character Froggy, successfully fostered emotional engagement and knowledge acquisition among general users. Scrollytelling was widely appreciated as an effective way to structure information visually. Through cognitive walkthroughs with 26 participants, the study found that interactive graphs, maps, and data visualizations helped users understand water quality challenges. Expert users valued the global project database and LinkedIn community integration for professional networking, while general users appreciated the intuitive format and educational value. The AI agent demonstrated effectiveness in bridging complex water quality data with diverse audiences through adaptive response patterns and conversation memory management.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>While the project successfully created a functional platform supporting awareness, education, and global collaboration, several features require further development. The AI interaction system could benefit from expanded training data and improved query understanding. The LinkedIn forum needs active community management to drive sustained engagement. Future work should include broader testing with healthcare stakeholders, integration of real-time water quality data feeds, and enhancement of machine learning forecasting capabilities. By incorporating user success stories, instructional videos, and additional interactive features, AquaLens can serve as a promising model for future digital tools that connect research, policy, and community action in sustainable water management globally.</p>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://aqualens.info" target="_blank">Visit Website →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: Algorithm Audit -->
+                        <div class="project-item" data-skills="ai data qualitative quantitative">
+                            <div class="project-main" data-project="2">
+                                <span class="project-num">BSc CSSci 2024</span>
+                                <div class="project-title-section">
+                                    <h3>Algorithm Audit: Policy Stances and Income Inequality</h3>
+                                    <div class="project-skills">AI · Machine Learning · Quantitative Research · Qualitative Research · Data Analysis · Statistical Methods · Research Design</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-2">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>This study investigates how political party policies on economics and social inequality affect income inequality, using the Palma ratio as a measure. The research focuses on the period following the Great Recession and uses a combination of quantitative and qualitative methods. Key tools include the Manifesto Project dataset for analyzing party policies and the UNU-WIDER World Income Inequality Database for income inequality data. A Generalized Estimating Equations (GEE) regression model was developed, complemented by qualitative validation using human and machine (ManifestoBerta) classification of political manifestos.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>The study found that while certain economic policy stances, such as welfare state expansion, were statistically significant predictors of the Palma ratio, they alone were insufficient to fully explain income inequality. Qualitative analysis revealed discrepancies between human and machine classifications of political manifestos, driven by local contexts and personal biases, which exposed the limitations of the ManifestoBerta model. Auditing with the Microsoft Responsible AI Toolbox highlighted regional and feature-specific variability, underscoring the importance of fairness measures in machine learning models.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>This study emphasizes the critical role of addressing algorithmic biases in predicting income inequality and the value of integrating human insights into machine learning models. Policymakers can leverage these findings to design more inclusive and equitable economic policies while ensuring transparency and fairness in AI-driven decision-making processes. Future research should focus on refining models by incorporating broader datasets and local political contexts.</p>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: Mobility Hubs -->
+                        <div class="project-item" data-skills="ai data qualitative quantitative">
+                            <div class="project-main" data-project="3">
+                                <span class="project-num">BSc CSSci 2023</span>
+                                <div class="project-title-section">
+                                    <h3>Making Neighbourhood Hubs Accessible to All <span class="favorite-star" title="Favorite Project">★</span></h3>
+                                    <div class="project-skills">Machine Learning · Quantitative Research · Qualitative Research · Data Analysis · Systems Thinking · Statistical Methods · Stakeholder Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-3">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>In partnership with the Municipality of Amsterdam, our project investigated shared mobility hubs to provide actionable recommendations for scaling the current 18 mobility hubs to a goal of 2000. Our research focused on increasing the adoption and usage of mobility hubs by analyzing factors such as location, user perceptions, and system integration using Social Practice Theory and Systems Thinking. Field research, machine learning (random forest regression), and sentiment analysis highlighted key barriers, including low visibility and accessibility.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>Mobility hubs face significant challenges, including low visibility and unclear signage, which hinder user engagement and adoption. Early success is critical to the growth of the mobility hub network, as systems analysis reveals positive feedback loops where established mobility hubs enhance the effectiveness of new ones. Shared mobility has been shown to thrive in high-density, high-income areas and locations near transit hubs. To address these challenges, we recommend introducing temporary mobility hubs through street experiments to normalize their use and increase public awareness.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>Our findings confirmed that increasing the network density of mobility hubs and enhancing their visibility will drive adoption and system growth. This project underscores the importance of integrating user perceptions, strategic planning, and systems thinking to design sustainable urban mobility solutions. Future research should address broader demographic impacts, refine predictive models, and evaluate the long-term success of proposed interventions.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Visualizations</h4>
+                                    <div class="project-visuals">
+                                        <img src="Figure1.gif" alt="Mobility Hub Analysis" class="project-image">
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://www.linkedin.com/posts/dmitry-golovchits_what-a-way-to-end-our-semester-3-project-activity-7168044046806982656-k-k5" target="_blank">View LinkedIn Post →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4: Healthcare Privacy -->
+                        <div class="project-item" data-skills="web ux qualitative">
+                            <div class="project-main" data-project="4">
+                                <span class="project-num">BSc CSSci 2023</span>
+                                <div class="project-title-section">
+                                    <h3>Privacy Awareness in Healthcare Institutions</h3>
+                                    <div class="project-skills">Web Development · HCI & UX · Qualitative Research · Research Design · Stakeholder Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-4">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>The project aimed to enhance privacy awareness and cybersecurity within Amsterdam-based healthcare institutions, focusing on OpenKAT, a tool developed by the Dutch Ministry of Health to identify system vulnerabilities and prevent data breaches. Collaborating with Sigra, a healthcare network, the group designed a website prototype to promote OpenKAT's accessibility and usage. The theoretical frameworks used included the Fogg Behavioral Model and the Technology Acceptance Model, guiding the website's design to increase motivation and ability for target users.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>The group conducted a focus group with privacy and data security officers to understand the needs and preferences of key stakeholders. Insights revealed the importance of effectively communicating OpenKAT's benefits, designing a user-friendly website that accounts for generational differences, and including real-life use cases to demonstrate the tool's practical applications. The focus group findings informed the creation of two website prototypes for A/B testing, though technical limitations and a restricted sample size highlighted the need for further research.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>The project successfully developed a functional website prototype that incorporated stakeholder feedback and adhered to theoretical models of behavior change. Future work should include broader testing with healthcare stakeholders to validate findings and improve website effectiveness. Collaboration with OpenKAT developers could also integrate instructional guides and explanatory content to simplify adoption. By incorporating success stories, instructional videos, and additional user-focused features, the website could further enhance motivation among its audience.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Wireframes</h4>
+                                    <div class="project-visuals">
+                                        <img src="The Vulnerability Analysis Tool.jpg" alt="The Vulnerability Analysis Tool" class="project-image">
+                                        <img src="About OpenKAT.jpg" alt="About OpenKAT" class="project-image">
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5: Schiphol Biometrics -->
+                        <div class="project-item" data-skills="quantitative data">
+                            <div class="project-main" data-project="5">
+                                <span class="project-num">BSc CSSci 2022</span>
+                                <div class="project-title-section">
+                                    <h3>Impact of Facial Recognition Boarding on Privacy Trust at Schiphol Airport</h3>
+                                    <div class="project-skills">Quantitative Research · Data Collection · Data Analysis · Conducting Surveys · Research Design</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-5">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>Facial recognition technology is increasingly being implemented in airports as a replacement for traditional boarding passes. This study investigates how this transition affects travelers' trust in privacy protection at Amsterdam Schiphol Airport. Trust and privacy concerns are central to the debate, as biometrics involve sharing sensitive personal data. The study draws on survey findings from 108 respondents of diverse socio-cultural backgrounds to explore public attitudes toward biometric boarding passes, with a focus on efficiency, safety, and privacy.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>The survey revealed that socio-cultural identity significantly influences attitudes toward biometric boarding, with Western Europeans showing greater openness to the technology for efficiency, while Eastern Europeans and North Americans exhibited more hesitancy. Interestingly, North Americans appeared less influenced by privacy concerns compared to Europeans. Despite privacy apprehensions, respondents across all groups showed increased willingness to share biometric data when efficiency improvements were emphasized, highlighting a trade-off between convenience and privacy.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>The transition to biometric boarding passes impacts trust in privacy protection. While efficiency motivates adoption, uncertainty about data security and a lack of informed consent remain significant barriers. The study concludes that better communication and transparency from airports and airlines are essential to build trust and increase acceptance. Future research should include larger and more diverse samples, alongside direct engagement with stakeholders like airports and airlines.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Visualization</h4>
+                                    <div class="project-visuals">
+                                        <img src="finding.jpg" alt="Research Finding" class="project-image">
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6: Amsterdam Canals -->
+                        <div class="project-item" data-skills="qualitative data">
+                            <div class="project-main" data-project="6">
+                                <span class="project-num">BSc CSSci 2022</span>
+                                <div class="project-title-section">
+                                    <h3>How to Improve Water Quality and Biodiversity in Amsterdam's Canals</h3>
+                                    <div class="project-skills">Qualitative Research · Conducting Interviews · Data Analysis · Research Design · Stakeholder Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-6">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>Amsterdam's centrum canals face ecological degradation due to pollution and boat traffic, failing to meet the European Water Framework Directive goals for biodiversity and water quality by 2027. Key contributors include sewage overflows during heavy rainfall, urban runoff carrying nitrogen and phosphorous, and disturbances caused by boat activity. This research explored how nature-based solutions can address these challenges, integrating sustainability with biodiversity goals through semi-structured interviews with stakeholders.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>The study identified three primary interventions: floating gardens offering nutrient absorption and habitat creation for wildlife; boat zoning to minimize disturbances and allow ecosystems to stabilize; and stormwater filtration systems to tackle urban runoff and prevent contaminants such as heavy metals, nitrogen, and phosphorous from entering the canals. These interventions complement the city's ongoing efforts to upgrade its sewer systems.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>To meet the EWFD goals by 2027, the study emphasized the need for large-scale implementation of these interventions. Expanding floating garden initiatives through public-private partnerships can maximize their effectiveness, while stricter regulations on houseboat waste disposal and targeted boat zoning will further alleviate water quality degradation. Public education campaigns and awareness initiatives are recommended to promote a shift in citizen attitudes and behaviors.</p>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://openresearch.amsterdam/nl/page/93592/how-to-improve-water-quality-and-biodiversity-in-amsterdam-s-canals" target="_blank">View Infographic on openresearch.amsterdam →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 7: F1 in Schools -->
+                        <div class="project-item" data-skills="web">
+                            <div class="project-main" data-project="7">
+                                <span class="project-num">Sec. Edu. 2021</span>
+                                <div class="project-title-section">
+                                    <h3>F1 in Schools: Team Escaping Singularity</h3>
+                                    <div class="project-skills">Project Management · Team Leadership · Web Development · Partnerships & Stakeholder Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-7">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>During my secondary education, I served as the Team Manager for Escaping Singularity, leading a group of six students from concept to World Finals qualification in the internationally recognized F1 in Schools STEM competition. I oversaw the entire project lifecycle, securing key sponsorships, managing budgets and resource allocation, and shaping a cohesive brand identity. Additionally, I established and maintained our team's digital presence by developing and managing the official website. By effectively coordinating every facet of the initiative, I helped elevate Escaping Singularity on the global stage.</p>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://golovchits.github.io/escapingsingularityf1/" target="_blank">View Project Website →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://golovchits.github.io/escapingsingularityf1/The-Team.html" target="_blank">View Collaborators →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 8: UAV Threat Detection - UPCOMING -->
+                        <div class="project-item upcoming-project hidden" data-skills="upcoming ai data">
+                            <div class="project-main" data-project="8">
+                                <span class="project-num">MSc InfoSci 2025</span>
+                                <div class="project-title-section">
+                                    <h3>Multi-Modal UAV Threat Detection in Real-Time with Uncertainty-Aware Fusion</h3>
+                                    <div class="project-skills">AI · Machine Learning · Computer Vision · Deep Learning · Multi-Modal Fusion · Bayesian Methods</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-8">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>The rapid proliferation of drones has created new challenges in airspace security, where existing anti-UAV systems are limited by their reliance on single-modality data such as RGB video. These systems struggle under adverse conditions like low light, occlusions, or high clutter. Recent benchmarks such as AntiUAV600 (thermal) and TRIDENT (RGB, audio, RF) provide diverse modalities but lack integrated approaches for uncertainty-aware sensor fusion. This project aims to develop a real-time Bayesian or evidential deep learning framework that fuses RGB, thermal, and acoustic signals, explicitly modelling prediction uncertainty to reduce false positives and enhance robustness.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Research Focus</h4>
+                                    <p>The proposed research will extend the evidential detection-tracking collaboration (EDTC) framework, incorporating multi-stream neural networks with shared and modality-specific layers, followed by uncertainty calibration layers (such as Dirichlet or ensemble-based estimations). The project will focus on: (1) designing and benchmarking fusion architectures; (2) exploring uncertainty-driven sensor selection strategies; (3) optimizing models for real-time performance on resource-constrained systems.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Expected Outcomes</h4>
+                                    <p>Expected outcomes include a robust multimodal anti-drone detection framework validated on publicly available datasets (AntiUAV600, Anti-UAV, TRIDENT), leading to potential publication in computer vision venues. This work aims to advance the state-of-the-art in uncertainty-aware multi-modal sensor fusion for security applications.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="content-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-content">
+                    <p>working on it...</p>
+                </div>
+            </section>
+
+            <section id="about" class="content-section">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-content">
+                    <p>still thinking...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

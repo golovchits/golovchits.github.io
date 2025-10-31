@@ -441,37 +441,34 @@ function setupCustomCursor() {
 }
 
 /**
- * Handle URL hash for direct links to sections and projects.
- * Supports: #section-name and #section-name/project-id
- * Examples: #research, #research/1, #experience/exp-1
+ * Handle URL query parameters for direct links to sections and projects.
+ * Supports: ?section=name and ?section=name&project=id
+ * Examples: ?section=research, ?section=research&project=1, ?section=experience&project=exp-1
  */
 function handleUrlHash() {
-    const hash = window.location.hash.slice(1); // Remove the '#'
-    if (!hash) return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionId = urlParams.get('section');
+    const projectId = urlParams.get('project');
 
-    const parts = hash.split('/');
-    const sectionId = parts[0];
-    const projectId = parts[1];
+    if (!sectionId) return;
 
     // Switch to the section
-    if (sectionId) {
-        const sections = document.querySelectorAll('.content-section');
-        const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-        sections.forEach(section => {
-            section.classList.remove('active');
-            if (section.id === sectionId) {
-                section.classList.add('active');
-            }
-        });
+    sections.forEach(section => {
+        section.classList.remove('active');
+        if (section.id === sectionId) {
+            section.classList.add('active');
+        }
+    });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-section') === sectionId) {
-                link.classList.add('active');
-            }
-        });
-    }
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === sectionId) {
+            link.classList.add('active');
+        }
+    });
 
     // Open the specific project if specified
     if (projectId) {

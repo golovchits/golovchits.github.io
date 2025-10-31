@@ -3,7 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none !important;
+}
 
+a, button, input, textarea, select {
+    cursor: none !important;
 }
 
 body, html {
@@ -11,6 +15,38 @@ body, html {
     overflow: hidden;
     font-family: 'Geist Mono', monospace;
     background-color: #0b0b2b;
+}
+
+/* Custom Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 212, 255, 0.8);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease-out, background-color 0.2s ease;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease-out;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+.cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(0, 212, 255, 0.2);
 }
 
 /* ===== INTRO SECTION ===== */
@@ -333,10 +369,12 @@ iframe {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
 }
 
 .project-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
 }
 
 .project-main {
@@ -344,12 +382,14 @@ iframe {
     align-items: center;
     gap: 2rem;
     padding: 1.5rem 0;
+    margin-left: 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: margin-left 0.3s ease;
+    width: 100%;
 }
 
 .project-main:hover {
-    padding-left: 1rem;
+    margin-left: 1rem;
 }
 
 .project-main:hover .project-num {
@@ -361,20 +401,20 @@ iframe {
 }
 
 .project-num {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: rgba(255, 255, 255, 0.4);
-    min-width: 40px;
+    min-width: 50px;
+    flex-shrink: 0;
     transition: color 0.3s ease;
 }
 
 .project-title-section {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    min-width: 0;
-    overflow: hidden;
 }
 
 .project-main h3 {
@@ -384,17 +424,29 @@ iframe {
     margin: 0;
     line-height: 1.4;
     transition: color 0.3s ease;
-    word-wrap: break-word;
+    word-break: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    width: 100%;
 }
 
 .project-skills {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
-    word-wrap: break-word;
+    word-break: break-word;
     overflow-wrap: break-word;
+    width: 100%;
+}
+
+.expand-icon {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+    min-width: 30px;
+    max-width: 30px;
+    flex-shrink: 0;
+    text-align: center;
 }
 
 /* Favorite Projects Styling */
@@ -490,11 +542,16 @@ iframe {
 
 .project-details.expanded {
     max-height: 2000px;
-    padding: 0 0 2rem 4.5rem;
+    padding: 0 0 4rem 4.5rem;
 }
 
 .detail-section {
     margin-bottom: 2rem;
+}
+
+.detail-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 4rem;
 }
 
 .detail-section h4 {
@@ -542,6 +599,10 @@ iframe {
     margin-top: 1rem;
 }
 
+.video-section {
+    margin-bottom: 4rem;
+}
+
 .project-image {
     width: 100%;
     max-width: 800px;
@@ -561,6 +622,16 @@ iframe {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
+    /* Hide custom cursor on mobile */
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+
+    * {
+        cursor: auto;
+    }
+
     iframe {
         width: 400px;
         height: 400px;
@@ -744,6 +815,7 @@ iframe {
     /* Mobile Project Styling */
     .project-item {
         margin: 0.5rem 0;
+        padding-bottom: 0;
     }
 
     .project-main {
@@ -793,7 +865,12 @@ iframe {
     }
 
     .project-details.expanded {
-        padding: 0 0 1.5rem 2rem;
+        padding: 0 0 1rem 2rem;
+        max-height: 5000px;
+    }
+
+    .video-section {
+        margin-bottom: 0;
     }
 
     .detail-section h4 {

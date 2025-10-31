@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Setup mobile navigation
     setupMobileNavigation();
+
+    // Setup custom cursor
+    setupCustomCursor();
 });
 
 /**
@@ -122,6 +125,9 @@ function setupNavigation() {
 
     // Setup replay animation button
     setupReplayAnimation();
+
+    // Handle URL hash for direct section/project links
+    handleUrlHash();
 }
 
 /**
@@ -131,10 +137,15 @@ function setupProjectExpansion() {
     const projectMains = document.querySelectorAll('.project-main');
 
     projectMains.forEach(main => {
-        main.addEventListener('click', () => {
-            const projectId = main.getAttribute('data-project');
-            const details = document.getElementById('project-' + projectId);
+        const projectId = main.getAttribute('data-project');
+        const details = document.getElementById('project-' + projectId);
 
+        // Auto-expand the experience section on load
+        if (projectId === 'exp-1' && details.classList.contains('expanded')) {
+            main.classList.add('active');
+        }
+
+        main.addEventListener('click', () => {
             // Toggle active state
             const isActive = main.classList.contains('active');
 
@@ -378,4 +389,105 @@ function setupMobileNavigation() {
             mobileMenuOverlay.classList.remove('active');
         }
     });
+}
+
+/**
+ * Setup custom cursor with ball design.
+ */
+function setupCustomCursor() {
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+
+    if (!cursor || !follower) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+    });
+
+    // Smooth follower animation
+    function animateFollower() {
+        const speed = 0.15;
+        followerX += (mouseX - followerX) * speed;
+        followerY += (mouseY - followerY) * speed;
+
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Add hover effect for clickable elements
+    const hoverElements = document.querySelectorAll('a, button, .project-main, .filter-btn, .nav-link, .mobile-nav-link');
+
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+}
+
+/**
+ * Handle URL hash for direct links to sections and projects.
+ * Supports: #section-name and #section-name/project-id
+ * Examples: #research, #research/1, #experience/exp-1
+ */
+function handleUrlHash() {
+    const hash = window.location.hash.slice(1); // Remove the '#'
+    if (!hash) return;
+
+    const parts = hash.split('/');
+    const sectionId = parts[0];
+    const projectId = parts[1];
+
+    // Switch to the section
+    if (sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        sections.forEach(section => {
+            section.classList.remove('active');
+            if (section.id === sectionId) {
+                section.classList.add('active');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Open the specific project if specified
+    if (projectId) {
+        setTimeout(() => {
+            const projectMain = document.querySelector(`.project-main[data-project="${projectId}"]`);
+            const projectDetails = document.getElementById('project-' + projectId);
+
+            if (projectMain && projectDetails) {
+                projectMain.classList.add('active');
+                projectDetails.classList.add('expanded');
+
+                // Scroll to the project
+                setTimeout(() => {
+                    projectMain.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }, 100);
+    }
 }

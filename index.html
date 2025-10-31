@@ -11,6 +11,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- Intro Animation -->
     <div id="intro">
         <div id="animated-text"></div>
@@ -98,7 +102,7 @@
             <section id="research" class="content-section active">
                 <h2 class="section-title">Research</h2>
                 <div class="section-content">
-                    <div class="favorite-key">★ Favorite</div>
+                    <div class="favorite-key">★ Favourite</div>
 
                     <!-- Skill Filters -->
                     <div class="skill-filters">
@@ -140,7 +144,7 @@
                                 <div class="project-links">
                                     <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
                                     <span class="link-sep">|</span>
-                                    <a href="https://aqualens.info" target="_blank">Visit Website →</a>
+                                    <a href="https://aqualens.info" target="_blank">Visit Website (only desktop) →</a>
                                 </div>
                             </div>
                         </div>
@@ -339,7 +343,7 @@
                         <!-- Project 8: UAV Threat Detection - UPCOMING -->
                         <div class="project-item upcoming-project hidden" data-skills="upcoming ai data">
                             <div class="project-main" data-project="8">
-                                <span class="project-num">MSc InfoSci 2025</span>
+                                <span class="project-num">MSc DataSci 2026</span>
                                 <div class="project-title-section">
                                     <h3>Multi-Modal UAV Threat Detection in Real-Time with Uncertainty-Aware Fusion</h3>
                                     <div class="project-skills">AI · Machine Learning · Computer Vision · Deep Learning · Multi-Modal Fusion · Bayesian Methods</div>
@@ -369,7 +373,52 @@
             <section id="experience" class="content-section">
                 <h2 class="section-title">Experience</h2>
                 <div class="section-content">
-                    <p>working on it...</p>
+                    <div class="research-list">
+
+                        <!-- Experience 1: Versuni Internship -->
+                        <div class="project-item">
+                            <div class="project-main" data-project="exp-1">
+                                <span class="project-num">May - Nov 2024</span>
+                                <div class="project-title-section">
+                                    <h3>Procurement AI / Innovation Intern at Versuni (formerly Philips DA)</h3>
+                                    <div class="project-skills">AI Development · Data Analysis · Process Automation · Microsoft Copilot Studio · Python · Stakeholder Management · Project Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details expanded" id="project-exp-1">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>As a Procurement AI / Innovation Intern at Versuni, a global consumer appliance company, I was tasked with implementing AI technologies to enhance operational efficiency and optimize financial operations within procurement processes. The internship focused on addressing real business challenges at the intersection of computational methods, data science, and AI implementation. My central research question was: "How can AI technologies be implemented to monitor and maintain different payment terms set in contracts while ensuring compliance with guidelines and negotiated terms?"</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>The Challenge</h4>
+                                    <p>Versuni manages complex procurement processes across multiple regions, facing significant challenges in maintaining consistency in procurement practices, particularly regarding payment terms with vendors. These inconsistencies led to financial inefficiencies, compliance issues, and strained supplier relationships. Through extensive data analysis, I discovered that approximately 15% of payment terms in the system contained some form of inconsistency or required verification, highlighting the critical need for systematic monitoring and intervention.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Technical Approach</h4>
+                                    <p>The project employed a mixed-method approach combining literature review, semi-structured interviews, internal documentation analysis, and stakeholder collaboration. I created custom data quality metrics and cross-validation methods between related data sources to address data inconsistencies. While exploring various AI implementation techniques including fine-tuning and RAG-based systems with open-source models like Llama and phi-3-mini, I ultimately leveraged Microsoft Copilot Studio with Microsoft Power Automate flows to balance technical feasibility, user accessibility, and business impact within project constraints. The development process incorporated principles from the Technology Acceptance Model to ensure perceived usefulness and ease of use, directly informing user interface and functionality decisions.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>VIRA: The Solution</h4>
+                                    <p>I developed VIRA (Versuni Intelligent Retrieval Assistant), an AI-driven virtual procurement assistant designed to oversee, monitor, and optimize payment terms in procurement processes. Built using Microsoft Copilot Studio due to organizational constraints around computational resources and data security, VIRA was designed following the principle of augmenting human decision-making rather than replacing it. The system integrated multiple data sources including SAP systems, contract management databases, regional payment term guidelines, and supplier master data. Through Agency Theory, VIRA functions as a mechanism to reduce information asymmetry between procurement managers and staff, making payment term data transparent and accessible while ensuring compliance with established guidelines.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Achievements</h4>
+                                    <p>VIRA successfully created a centralized access point for previously fragmented payment term information, significantly reducing the time spent searching for payment term data. The system provides real-time payment term status monitoring across regions and vendors, vendor-specific payment term history, recent purchase order reviews with contextual information, integration with Supplier Account Manager reporting, and access to general procurement knowledge. By developing a classification framework that categorized payment terms as "healthy," "unhealthy," or "review," VIRA provided actionable intelligence for procurement professionals. The system was integrated into Microsoft Teams for workplace accessibility and designed with natural language queries matching procurement vocabulary, ensuring high user satisfaction and adoption.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>VIRA Demo</h4>
+                                    <div class="project-visuals video-section">
+                                        <video controls class="project-image">
+                                            <source src="promoVIRAfinalfakedata.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 

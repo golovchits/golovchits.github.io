@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Setup custom cursor
     setupCustomCursor();
+
 });
 
 /**
@@ -77,6 +78,10 @@ function transitionToMainContent() {
     const intro = document.getElementById("intro");
     const mainContent = document.getElementById("main-content");
 
+    // Check if we need to handle URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasUrlParams = urlParams.has('section') || urlParams.has('project');
+
     // Fade out intro
     intro.style.transition = "opacity 1s ease-in-out";
     intro.style.opacity = "0";
@@ -84,12 +89,84 @@ function transitionToMainContent() {
     setTimeout(() => {
         intro.style.display = "none";
 
-        // Show and fade in main content
+        // Show main content (but keep it invisible if we have URL params)
         mainContent.style.display = "block";
-        setTimeout(() => {
-            mainContent.style.opacity = "1";
-            toggleScrolling(true);
-        }, 50);
+
+        // If we have URL params, switch section/expand project first, then make visible
+        if (hasUrlParams) {
+            const sectionId = urlParams.get('section');
+            const projectId = urlParams.get('project');
+
+            // Switch to the section immediately
+            if (sectionId) {
+                const sections = document.querySelectorAll('.content-section');
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Expand project if specified
+            if (projectId) {
+                const projectMain = document.querySelector(`.project-main[data-project="${projectId}"]`);
+                const projectDetails = document.getElementById('project-' + projectId);
+
+                if (projectMain && projectDetails) {
+                    projectMain.classList.add('active');
+                    projectDetails.classList.add('expanded');
+                }
+            }
+
+            // Now make content visible and scroll
+            setTimeout(() => {
+                mainContent.style.opacity = "1";
+                toggleScrolling(true);
+
+                // Scroll to the project or section with longer delay
+                setTimeout(() => {
+                    if (projectId) {
+                        const projectMain = document.querySelector(`.project-main[data-project="${projectId}"]`);
+                        const projectItem = projectMain?.closest('.project-item');
+                        if (projectItem) {
+                            // Use scrollIntoView instead of manual calculation
+                            projectItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                            // Then adjust slightly upward after scroll completes
+                            setTimeout(() => {
+                                window.scrollBy({
+                                    top: -20,
+                                    behavior: 'smooth'
+                                });
+                            }, 600);
+                        } else {
+                            console.log('Project item not found for:', projectId);
+                        }
+                    } else if (sectionId) {
+                        const section = document.getElementById(sectionId);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                }, 600);
+            }, 50);
+        } else {
+            // No URL params, just fade in normally
+            setTimeout(() => {
+                mainContent.style.opacity = "1";
+                toggleScrolling(true);
+            }, 50);
+        }
     }, 1000);
 }
 
@@ -441,6 +518,34 @@ function setupCustomCursor() {
 }
 
 /**
+ * Custom smooth scroll function with configurable duration.
+ */
+function smoothScrollTo(targetPosition, duration) {
+    const startPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // Easing function for smooth deceleration
+        const ease = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+/**
  * Handle URL query parameters for direct links to sections and projects.
  * Supports: ?section=name and ?section=name&project=id
  * Examples: ?section=research, ?section=research&project=1, ?section=experience&project=exp-1
@@ -470,21 +575,45 @@ function handleUrlHash() {
         }
     });
 
-    // Open the specific project if specified
-    if (projectId) {
-        setTimeout(() => {
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+        // Open the specific project if specified
+        if (projectId) {
             const projectMain = document.querySelector(`.project-main[data-project="${projectId}"]`);
             const projectDetails = document.getElementById('project-' + projectId);
 
             if (projectMain && projectDetails) {
+                // Expand the project first
                 projectMain.classList.add('active');
                 projectDetails.classList.add('expanded');
 
-                // Scroll to the project
-                setTimeout(() => {
-                    projectMain.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                // Scroll after expansion animation starts
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        // Get the project-item parent (which has the border)
+                        const projectItem = projectMain.closest('.project-item');
+                        if (projectItem) {
+                            // Scroll to the project-item to align with the separator line
+                            const rect = projectItem.getBoundingClientRect();
+                            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            const targetPosition = rect.top + scrollTop - 20;
+
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                });
             }
-        }, 100);
-    }
+        } else if (sectionId) {
+            // If only section is specified (no project), scroll to the section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                requestAnimationFrame(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+        }
+    });
 }

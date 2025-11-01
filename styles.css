@@ -15,6 +15,11 @@ body, html {
     overflow: hidden;
     font-family: 'Geist Mono', monospace;
     background-color: #0b0b2b;
+    scroll-behavior: smooth;
+}
+
+#content-area {
+    scroll-behavior: smooth;
 }
 
 /* Custom Cursor */

@@ -1169,15 +1169,15 @@ iframe {
     }
 
     .about-greeting {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .about-intro, .about-story {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .about-section-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .fun-facts-grid {
@@ -1186,6 +1186,18 @@ iframe {
 
     .philosophy-cards {
         grid-template-columns: 1fr;
+    }
+
+    .philosophy-card h4 {
+        font-size: 1rem;
+    }
+
+    .philosophy-card p {
+        font-size: 0.9rem;
+    }
+
+    .fact-content p {
+        font-size: 0.95rem;
     }
 
     .current-item {
@@ -1199,7 +1211,7 @@ iframe {
     }
 
     .cta-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .cta-buttons {

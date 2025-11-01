@@ -327,7 +327,9 @@ window.addEventListener("pageshow", (event) => {
  */
 function setupSkillFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+    // Only get project items within the research section
+    const researchSection = document.getElementById('research');
+    const projectItems = researchSection ? researchSection.querySelectorAll('.project-item') : [];
 
     if (!filterButtons.length || !projectItems.length) return;
 

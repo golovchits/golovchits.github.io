@@ -44,15 +44,24 @@
                     <span class="nav-number">02</span>
                     <span class="nav-text">Experience</span>
                 </a>
-                <a href="#about" class="nav-link" data-section="about">
+                <a href="#hackathons" class="nav-link" data-section="hackathons">
                     <span class="nav-number">03</span>
+                    <span class="nav-text">Hackathons</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-number">04</span>
                     <span class="nav-text">About Me</span>
                 </a>
             </div>
             <div class="nav-footer">
-                <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
-                    <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
-                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+                        <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                    <a href="https://github.com/golovchits" target="_blank" rel="noopener noreferrer" class="github-link">
+                        <img src="github.png" alt="GitHub" class="github-logo">
+                    </a>
+                </div>
                 <div class="replay-text" id="replay-animation">
                     Like the animation? Me too :) Replay it.
                 </div>
@@ -82,14 +91,23 @@
                     <span class="mobile-nav-number">02</span>
                     <span class="mobile-nav-text">Experience</span>
                 </a>
-                <a href="#about" class="mobile-nav-link" data-section="about">
+                <a href="#hackathons" class="mobile-nav-link" data-section="hackathons">
                     <span class="mobile-nav-number">03</span>
+                    <span class="mobile-nav-text">Hackathons</span>
+                </a>
+                <a href="#about" class="mobile-nav-link" data-section="about">
+                    <span class="mobile-nav-number">04</span>
                     <span class="mobile-nav-text">About Me</span>
                 </a>
                 <div class="mobile-menu-footer">
-                    <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="mobile-linkedin-link">
-                        <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
-                    </a>
+                    <div class="mobile-social-links">
+                        <a href="https://www.linkedin.com/in/dmitry-golovchits/" target="_blank" rel="noopener noreferrer" class="mobile-linkedin-link">
+                            <img src="InBug-White.png" alt="LinkedIn" class="linkedin-logo">
+                        </a>
+                        <a href="https://github.com/golovchits" target="_blank" rel="noopener noreferrer" class="mobile-github-link">
+                            <img src="github.png" alt="GitHub" class="github-logo">
+                        </a>
+                    </div>
                     <div class="mobile-replay-text" id="mobile-replay-animation">
                         Like the animation? Me too :) Replay it.
                     </div>
@@ -117,6 +135,39 @@
                     </div>
 
                     <div class="research-list">
+
+                        <!-- Project 9: Intellicon -->
+                        <div class="project-item" data-skills="ai data quantitative qualitative">
+                            <div class="project-main" data-project="9">
+                                <span class="project-num">MSc DataSci 2026</span>
+                                <div class="project-title-section">
+                                    <h3>Intellicon: A Multi-Agent AI System for Automated Business Analysis in Consultancy</h3>
+                                    <div class="project-skills">AI · Multi-Agent Systems · Large Language Models · RAG · Prompt Engineering · n8n Workflow Orchestration · Quantitative Research · Project Management</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-9">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>Intellicon is a modular multi-agent AI system designed to automate parts of business case analysis in management consultancy. Developed within the University of Amsterdam's Complex Cyber Infrastructure research group as part of the broader Zero Person Company (ZPC) program, the system orchestrates an Analyst agent (reasoning and synthesis) and a Librarian agent (targeted file retrieval) in a parent-child investigation loop, with human review steps preserved across phases. The end-to-end workflow covers three phases: client onboarding (market analysis, interview-insights extraction, and problem-statement drafting), business case investigation (the agentic loop), and structured output creation (automated PowerPoint generation via Presenton). Workflow orchestration is handled in n8n with a clickable front-end prototype, supporting traceability and reproducibility of agent decisions.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Key Findings</h4>
+                                    <p>Across nine synthetic business cases with defined ground truth, one-shot prompting in the parent-child loop emerged as the optimal configuration, achieving the highest overall grade (4.6/5) and groundedness score (4.8/5) while reducing average token usage by roughly 11% compared to zero-shot. A single interaction example acted as a lightweight coordination protocol that lowered unproductive Analyst-Librarian back-and-forth from 1.6 to 1.2 average iterations. Multi-shot prompting degraded performance by saturating the context window and forcing the Analyst into example-shaped outputs, suggesting that one well-crafted example outperforms volume. The linear baseline remained the cheapest in absolute tokens but lacked the analytical depth of the agentic loop.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Future Directions</h4>
+                                    <p>The prototype demonstrates feasibility but is not yet deployable. Future work should evaluate Intellicon on more realistic and ambiguous cases, benchmark the Librarian against simple retrieval baselines such as TF-IDF and dense embeddings, and migrate model inference to private infrastructure to meet client confidentiality and GDPR requirements. Strengthening verification and stopping behaviour would let the system more reliably escalate cases with missing or conflicting evidence to a human consultant, supporting the broader vision of human-in-the-loop multi-agent automation in high-stakes professional workflows.</p>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/golovchits/Data-Systems-Project-Group-D2" target="_blank">View on GitHub →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://basic-project-starter.lovable.app/" target="_blank">View Clickable Prototype →</a>
+                                    <span class="link-sep">|</span>
+                                    <a href="https://www.linkedin.com/in/dmitry-golovchits/details/projects/" target="_blank">View Collaborators →</a>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Project 1: AquaLens -->
                         <div class="project-item" data-skills="ai web data qualitative quantitative ux">
@@ -414,6 +465,83 @@
                 </div>
             </section>
 
+            <section id="hackathons" class="content-section">
+                <h2 class="section-title">Hackathons</h2>
+                <div class="section-content">
+                    <div class="research-list">
+
+                        <!-- Hackathon 1: RunItBack -->
+                        <div class="project-item">
+                            <div class="project-main" data-project="hack-1">
+                                <span class="project-num">Anthropic Apr 2026</span>
+                                <div class="project-title-section">
+                                    <h3>RunItBack: ML Paper Reproducibility Diagnostic</h3>
+                                    <div class="project-skills">AI · Multi-Agent Systems · Claude Managed Agents · LLM Engineering · Reproducibility · Python · FastAPI · React · TypeScript</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-hack-1">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>RunItBack is a diagnostic tool that validates the reproducibility of machine learning papers by comparing research claims against their companion code repositories — without retraining models. Built solo during the "Built with Opus 4.7: A Claude Code Hackathon", the system orchestrates four sequential Claude agents (Paper Analyst, Code & Data Auditor, Validator, and Reviewer) to flag reproducibility failures such as data leakage, configuration drift, metric mismatches, silent bugs, and undocumented heuristics. The architecture leans on Claude's native multimodal PDF ingestion (text, tables, figures, and equations in one pass) and Claude Managed Agents for tool routing, with a ≥2-agent agreement rule that produces honest uncertainty reporting instead of hallucinated consensus.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Tech Stack</h4>
+                                    <p>Python 3.12, FastAPI, Pydantic, SQLite, JSONL logging · React, TypeScript, Vite, Tailwind CSS · Claude Opus 4.7, Claude Managed Agents · bash, grep, git, arXiv and GitHub integration.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Demo</h4>
+                                    <div class="project-visuals video-section">
+                                        <video controls class="project-image">
+                                            <source src="RunItBack.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/golovchits/RunItBack" target="_blank">View on GitHub →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hackathon 2: BunqProtect -->
+                        <div class="project-item">
+                            <div class="project-main" data-project="hack-2">
+                                <span class="project-num">bunq 7.0 Apr 2026</span>
+                                <div class="project-title-section">
+                                    <h3>BunqProtect: Multi-Modal AI Scam Shield for bunq</h3>
+                                    <div class="project-skills">AI · Multi-Modal Fusion · Claude Sonnet 4.5 · Audio Transcription · Computer Vision · Python · FastAPI · React · Fintech</div>
+                                </div>
+                                <span class="expand-icon">+</span>
+                            </div>
+                            <div class="project-details" id="project-hack-2">
+                                <div class="detail-section">
+                                    <h4>Overview</h4>
+                                    <p>BunqProtect is a multi-modal AI scam shield prototype for the bunq mobile banking platform, built during bunq Hackathon 7.0. When a user faces a suspicious payment request, they tap "Check for scam" and attach evidence as a screenshot, voicemail, or live call recording. The system analyses each modality independently, then fuses the results with explicit cross-modal contradiction detection before recommending approval or rejection — surfacing per-modality reasoning so users can see why a decision was reached. A passive auto-reject webhook mode enables continuous protection in the background, and the demo ships with four pre-built scenarios (brand impersonation, vishing, booking fraud, and a legitimate-transaction control case).</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Tech Stack</h4>
+                                    <p>Python 3.12, FastAPI · Anthropic Claude Sonnet 4.5, Groq Whisper-large-v3-turbo · React 18, Vite 5, Tailwind CSS · bunq sandbox API, Web Speech API.</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>Demo</h4>
+                                    <div class="project-visuals video-section">
+                                        <video controls class="project-image">
+                                            <source src="BunqProtectDemo.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/golovchits/BunqProtect" target="_blank">View on GitHub →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
             <section id="about" class="content-section">
                 <h2 class="section-title">About Me</h2>
                 <div class="section-content">
@@ -430,7 +558,7 @@
                         <div class="about-bio">
                             <h3 class="about-greeting">Hey there! 👋</h3>
                             <p class="about-intro">
-                                My name's Dmitry, but you can call me Dima. Did my headshot spook you? Do not fret, it spooked me too the first time I saw it come up. I'm a first-generation Cypriot with full roots from Belarus, who moved to the Netherlands to pursue a degree in Computational Social Science (CSSci) at the University of Amsterdam (UvA). It's a sphere I find myself quite passionate about, solving complex real-world problems through data, interdisciplinary research and various computational methods.
+                                My name's Dmitry, but you can call me Dima. I'm a first-generation Cypriot with full roots from Belarus, who moved to the Netherlands to pursue a degree in Computational Social Science (CSSci) at the University of Amsterdam (UvA). It's a sphere I find myself quite passionate about, solving complex real-world problems through data, interdisciplinary research and various computational methods.
                             </p>
                             <p class="about-story">
                                 This is where I thought of my dramatic slogan "Chasing Solutions Through Data", because throughout the 3 years of CSSci it literally felt like chasing solutions through data. I've found myself drawn to projects that have a tangible impact on society, whether it's through analysing political policies, urban mobility, healthcare privacy, or environmental sustainability. Each project has been a stepping stone in my journey to understand how data can drive meaningful change.
@@ -490,12 +618,12 @@
                             <h3 class="about-section-title">Currently...</h3>
                             <div class="current-items">
                                 <div class="current-item">
-                                    <span class="current-label">Learning:</span>
-                                    <span class="current-value">Applied machine learning and applied forecasting in complex systems</span>
+                                    <span class="current-label">Working on:</span>
+                                    <span class="current-value">Multi-Modal UAV Threat Detection in Real-Time with Uncertainty-Aware Fusion</span>
                                 </div>
                                 <div class="current-item">
                                     <span class="current-label">Excited About:</span>
-                                    <span class="current-value">My upcoming master thesis project :)</span>
+                                    <span class="current-value">Summer weather :)</span>
                                 </div>
                             </div>
                         </div>
